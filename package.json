@@ -20,6 +20,8 @@
   "homepage": "https://github.com/roger/rogerjs.com#readme",
   "dependencies": {
     "express": "^4.13.4",
+    "kerberos": "0.0.21",
+    "mongodb": "^2.1.18",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   },
