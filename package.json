@@ -2,7 +2,7 @@
   "name": "roger",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon lib/server.js --exec babel-node",
+    "start": "nodemon server/index.js --exec babel-node",
     "build": "babel lib -d dist",
     "serve": "node dist/server.js"
   },
