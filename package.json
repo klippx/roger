@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.13.4",
     "kerberos": "0.0.21",
+    "mappersmith": "^0.13.2",
     "mongodb": "^2.1.18",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
