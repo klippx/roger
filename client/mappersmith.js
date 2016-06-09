@@ -1,10 +1,11 @@
-let Mappersmith = require('mappersmith/node');
+let Mappersmith = require('mappersmith');
 
 let manifest = {
   host: 'http://localhost:3000',
   resources: {
     Links: {
       all: { path: '/data/links' },
+      // processor: ...
     }
   }
 }

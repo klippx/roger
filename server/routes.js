@@ -1,5 +1,5 @@
-import receiveLinks from './actions/receive-links'
+import receiveLinks from './actions/receive-links';
 
-module.exports = function (app) {
+export default function (app) {
   app.get('/data/links', receiveLinks);
 }

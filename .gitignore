@@ -1,4 +1,4 @@
-public/bundle.js
-public/bundle.js.map
+public/client-bundle.js
+public/client-bundle.js.map
 node_modules
 npm-debug.log
