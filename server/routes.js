@@ -1,11 +1,5 @@
-import db from './database';
+import receiveLinks from './actions/receive-links'
 
 module.exports = function (app) {
-  app.get('/data/links', (req, res) => {
-    db.collection('links').find({}).toArray((err, links) => {
-      if (err) throw err;
-
-      res.json(links);
-    });
-  });
+  app.get('/data/links', receiveLinks);
 }
