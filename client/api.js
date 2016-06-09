@@ -1,14 +1,10 @@
-let Mappersmith = require('mappersmith/node');
+import ServerAPI from './mappersmith';
+import receiveLinks from './actions/receive-links';
 
-let manifest = {
-  host: 'http://localhost:3000',
-  resources: {
-    Links: {
-      all: { path: '/data/links' },
-    }
+export let API = {
+  fetchLinks() {
+    ServerAPI.Links.all().then(response => {
+      receiveLinks(response)
+    })
   }
 }
-
-Mappersmith.Env.USE_PROMISES = true;
-
-export default Mappersmith.forge(manifest)

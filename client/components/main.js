@@ -3,11 +3,7 @@ import API from '../api';
 
 export default React.createClass({
   componentWillMount() {
-    API.Links.all()
-      .then(response => {
-        console.log(response.data)
-      })
-      .catch(error => { console.error('Failed to fetch links', error) })
+    API.fetchLinks();
   },
 
   render() {
