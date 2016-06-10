@@ -7,4 +7,4 @@ app.use(express.static('public'));
 import Routes from './routes';
 Routes(app);
 
-app.listen(3000, () => console.log('Listening on port 3000'));
+app.listen(3100, () => console.log('App running at http://localhost:3100/'));
