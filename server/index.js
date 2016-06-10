@@ -1,5 +1,4 @@
 import express from 'express';
-import receiveLinks from './actions/receive-links'
 
 let app = express();
 
