@@ -23,6 +23,7 @@ class LinkStore extends EventEmitter {
   }
 
   getAll() {
+    console.log('link-store/getAll, returning links: ', _links)
     return _links;
   }
 }
@@ -30,11 +31,11 @@ class LinkStore extends EventEmitter {
 let linkStoreInstance = new LinkStore();
 
 linkStoreInstance.dispatchToken = AppDispatcher.register(action => {
-  console.log('link-store/action received', action)
+  console.log('link-store, an action was received: ', action.type)
 
   switch(action.type) {
     case ActionTypes.RECEIVE_LINKS:
-      console.log('link-store/RECEIVE_LINKS received!')
+      console.log('link-store, updating links in store!')
       _links = action.links;
       linkStoreInstance.emitChange();
       break;
