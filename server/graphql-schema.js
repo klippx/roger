@@ -27,11 +27,6 @@ let LinkType = new GraphQLObjectType({
   })
 });
 
-let FIXTURES = [
-  {id: 1, url: 'http://example.com', title: 'Example'},
-  {id: 2, url: 'http://exit.com', title: 'Exit'}
-];
-
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'LinkQuery',

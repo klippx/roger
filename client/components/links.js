@@ -42,7 +42,7 @@ export default React.createClass({
       <div>
         <ul>
           {this.state.links.map(link => {
-            return <LinkItem key={link._id} data={link} />;
+            return <LinkItem key={link.id} data={link} />;
           })}
         </ul>
       </div>
