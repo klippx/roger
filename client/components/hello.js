@@ -21,16 +21,14 @@ export default React.createClass({
     this.setState(getStateFromStores());
   },
 
-  componentWillMount() {
-    console.log('hello/componentWillMount, fetching Hello from server...')
-    ServerAPI.Hello.all()
-      .then(response => receiveHello(response))
-      .catch(console.error)
-  },
-
   componentDidMount() {
     console.log('hello/componentDidMount, add change listener to HelloStore...');
     HelloStore.addChangeListener(this._onChange);
+
+    console.log('hello/componentDidMount, fetching Hello from server...')
+    ServerAPI.Hello.all()
+      .then(response => receiveHello(response))
+      .catch(console.error)
   },
 
   componentWillUnmount() {

@@ -25,6 +25,7 @@
     "kerberos": "0.0.21",
     "mappersmith": "^0.13.2",
     "mongodb": "^2.1.18",
+    "mongoose": "^4.4.20",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   },
