@@ -1,14 +1,7 @@
-import {MongoClient} from 'mongodb';
-let db;
+import mongoose from 'mongoose';
 
 if (!process.env.MONGO_URL) {
   throw new Error("Please configure $MONGO_URL")
 }
 
-MongoClient.connect(process.env.MONGO_URL, (err, database) => {
-  if (err) throw err;
-
-  db = database;
-});
-
-export { db as default }
+mongoose.connect(process.env.MONGO_URL);

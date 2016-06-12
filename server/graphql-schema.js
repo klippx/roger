@@ -27,7 +27,12 @@ let LinkType = new GraphQLObjectType({
   })
 });
 
-let schema = new GraphQLSchema({
+let FIXTURES = [
+  {id: 1, url: 'http://example.com', title: 'Example'},
+  {id: 2, url: 'http://exit.com', title: 'Exit'}
+];
+
+export default new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'LinkQuery',
     fields: {
@@ -40,14 +45,14 @@ let schema = new GraphQLSchema({
       links: {
         type: new GraphQLList(LinkType),
         resolve: () => {
-          return [
-            {id: 1, url: 'http://example.com', title: 'Example'},
-            {id: 2, url: 'http://exit.com', title: 'Exit'}
-          ];
+          return new Promise((resolve, reject) => {
+            Link.find((err, links) => {
+              if (err) reject(err)
+              else resolve(links)
+            })
+          })
         }
       }
     }
   })
 });
-
-export default schema;
