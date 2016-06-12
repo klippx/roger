@@ -22,16 +22,13 @@ export default React.createClass({
     this.setState(getStateFromStores());
   },
 
-  componentWillMount() {
-    console.log('links/componentWillMount, fetching links from server...')
-    ServerAPI.Links.all()
-      .then(response => receiveLinks(response))
-      .catch(console.error)
-  },
-
   componentDidMount() {
     console.log('links/componentDidMount, add change listener to LinkStore...');
     LinkStore.addChangeListener(this._onChange);
+    console.log('links/componentDidMount, fetching links from server...')
+    ServerAPI.Links.all()
+      .then(response => receiveLinks(response))
+      .catch(console.error)
   },
 
   componentWillUnmount() {

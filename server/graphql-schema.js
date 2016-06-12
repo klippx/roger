@@ -36,12 +36,6 @@ export default new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'LinkQuery',
     fields: {
-      hello: {
-        type: GraphQLString,
-        resolve() {
-          return 'world';
-        }
-      },
       links: {
         type: new GraphQLList(LinkType),
         resolve: () => {

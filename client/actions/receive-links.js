@@ -5,6 +5,6 @@ export default (links) => {
   console.log('receiveLinks, links received from server, dispatching RECEIVE_LINKS message...');
   AppDispatcher.dispatch({
     type: ActionTypes.RECEIVE_LINKS,
-    links: links.data
+    links: links.data.data.links
   });
 }

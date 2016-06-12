@@ -1,10 +1,9 @@
-import db from '../database';
+import {graphql} from 'graphql';
+import schema from '../graphql-schema';
 
 export default (req, res) => {
-  console.log('fetch-links, fetching links from MongoDB')
-  db.collection('links').find({}).toArray((err, links) => {
-    if (err) throw err;
-
-    res.json(links);
-  });
+  console.log('fetching {links} from graphql')
+  graphql(schema, '{ links { title, url } }')
+    .then(result => res.json(result))
+    .catch(console.error);
 }
