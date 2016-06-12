@@ -1,7 +1,7 @@
 let Mappersmith = require('mappersmith');
 
 let manifest = {
-  host: 'http://localhost:3000',
+  host: 'http://localhost:3100',
   resources: {
     Links: {
       all: { path: '/data/links' }
