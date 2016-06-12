@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Links from './components/links';
+import Main from './main';
 
-ReactDOM.render(<Links />, document.getElementById('react'));
+ReactDOM.render(<Main />, document.getElementById('react'));

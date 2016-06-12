@@ -5,6 +5,9 @@ let manifest = {
   resources: {
     Links: {
       all: { path: '/data/links' }
+    },
+    Hello: {
+      all: { path: '/data/hello' }
     }
   }
 }

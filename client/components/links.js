@@ -40,7 +40,7 @@ export default React.createClass({
   },
 
   render() {
-    console.log('links/componentDidMount, render!');
+    console.log('links/render');
     return (
       <div>
         <ul>
