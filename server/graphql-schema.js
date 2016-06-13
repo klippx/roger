@@ -57,6 +57,27 @@ let MutationAdd = {
   }
 }
 
+let MutationDelete = {
+  type: LinkType,
+  description: 'Remove a Link',
+  args: {
+    id: {
+      name: 'Link id',
+      type: new GraphQLNonNull(GraphQLString)
+    }
+  },
+  resolve: (root, args) => {
+    console.log('Trying to remove a link...', args.id)
+    return new Promise((resolve, reject) => {
+      Link.remove({ id: args.id })
+        .then(doc => {
+          if (!doc.result.ok) reject(doc.result)
+          else resolve(doc.result);
+        })
+    })
+  }
+}
+
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',
@@ -77,7 +98,8 @@ export default new GraphQLSchema({
   mutation: new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-      add: MutationAdd
+      add: MutationAdd,
+      delete: MutationDelete
     }
   })
 });

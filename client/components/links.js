@@ -46,7 +46,7 @@ export default React.createClass({
       </ul>;
 
     var addLink =
-      <form action="data/links" method="post">
+      <form action="data/links/create" method="post">
         <h3>Add new link</h3>
         <input type="text" placeholder="Enter link title" />
         <input type="text" placeholder="Enter link url" />

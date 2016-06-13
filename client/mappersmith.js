@@ -4,7 +4,8 @@ let manifest = {
   host: 'http://localhost:3100',
   resources: {
     Links: {
-      all: { path: '/data/links' }
+      all: { path: '/data/links' },
+      delete: { path: '/data/links/delete/{id}', method: 'delete' }
     }
   }
 }
