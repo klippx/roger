@@ -38,13 +38,27 @@ export default React.createClass({
 
   render() {
     console.log('links/render');
+    var currentLinks =
+      <ul>
+        {this.state.links.map(link => {
+          return <LinkItem key={link.id} data={link} />;
+        })}
+      </ul>;
+
+    var addLink =
+      <form action="data/links" method="post">
+        <h3>Add new link</h3>
+        <input type="text" placeholder="Enter link title" />
+        <input type="text" placeholder="Enter link url" />
+        <br />
+        <input type="submit" value="Add link" />
+      </form>;
+
     return (
       <div>
-        <ul>
-          {this.state.links.map(link => {
-            return <LinkItem key={link.id} data={link} />;
-          })}
-        </ul>
+        {currentLinks}
+        <br />
+        {addLink}
       </div>
     );
   }
