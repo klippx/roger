@@ -4,6 +4,7 @@ import {
   GraphQLObjectType,
   GraphQLID,
   GraphQLList,
+  GraphQLNonNull,
   GraphQLString
 } from 'graphql';
 
@@ -27,9 +28,38 @@ let LinkType = new GraphQLObjectType({
   })
 });
 
+let MutationAdd = {
+  type: LinkType,
+  description: 'Add a Link',
+  args: {
+    title: {
+      name: 'Link title',
+      type: new GraphQLNonNull(GraphQLString)
+    },
+    url: {
+      name: 'Link url',
+      type: new GraphQLNonNull(GraphQLString)
+    }
+  },
+  resolve: (root, args) => {
+    var newLink = new Link({
+      title: args.title,
+      url: args.url,
+      completed: false
+    })
+    newLink.id = newLink._id
+    return new Promise((resolve, reject) => {
+      newLink.save(function (err) {
+        if (err) reject(err)
+        else resolve(newLink)
+      })
+    })
+  }
+}
+
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
-    name: 'LinkQuery',
+    name: 'Query',
     fields: {
       links: {
         type: new GraphQLList(LinkType),
@@ -42,6 +72,12 @@ export default new GraphQLSchema({
           })
         }
       }
+    }
+  }),
+  mutation: new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+      add: MutationAdd
     }
   })
 });
