@@ -3,7 +3,9 @@ import ServerAPI from '../mappersmith';
 
 export default React.createClass({
   deleteLink() {
-    ServerAPI.Links.delete({id: this.props.data.id})
+    ServerAPI.Links
+      .delete({id: this.props.data.id})
+      .catch(console.error)
   },
 
   render() {

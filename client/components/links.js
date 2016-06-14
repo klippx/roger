@@ -36,6 +36,18 @@ export default React.createClass({
     LinkStore.removeChangeListener(this._onChange);
   },
 
+  addLink(e) {
+    e.preventDefault();
+    let newLink = {
+      title: this.refs.inputTitle.value,
+      url: this.refs.inputUrl.value,
+    }
+    console.log('adding link', newLink)
+    ServerAPI.Links
+      .create({ body: newLink })
+      .catch(console.error)
+  },
+
   render() {
     console.log('links/render');
     var currentLinks =
@@ -48,10 +60,10 @@ export default React.createClass({
     var addLink =
       <form action="data/links/create" method="post">
         <h3>Add new link</h3>
-        <input type="text" placeholder="Enter link title" />
-        <input type="text" placeholder="Enter link url" />
+        <input type="text" ref="inputTitle" placeholder="Enter link title" />
+        <input type="text" ref="inputUrl" placeholder="Enter link url" />
         <br />
-        <input type="submit" value="Add link" />
+        <input type="submit" value="Add link" onClick={this.addLink}/>
       </form>;
 
     return (
