@@ -13,4 +13,4 @@ let manifest = {
 
 Mappersmith.Env.USE_PROMISES = true;
 
-export default Mappersmith.forge(manifest, Mappersmith.JQueryGateway);
+export default Mappersmith.forge(manifest);
